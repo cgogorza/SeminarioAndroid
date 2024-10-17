@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="hello_app">Hello Movie App</string>
+    <string name="how_are_you">How are you?</string>
+    <string name="increment">Increment</string>
+    <string name="reset">Reset</string>
+</resources>
