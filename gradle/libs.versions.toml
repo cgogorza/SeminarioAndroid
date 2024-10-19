@@ -11,6 +11,7 @@ activity = "1.9.3"
 constraintlayout = "2.1.4"
 hiltVersion = "2.51.1"
 kaptVersion = "2.0.20"
+retrofit = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -24,6 +25,9 @@ androidx-activityKtx = { group = "androidx.activity", name = "activity-ktx", ver
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hiltVersion"}
 hilt-compiler = { module = "com.google.dagger: hilt-compiler", version.ref = "hiltVersion"}
+retrofit = {module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit"}
+retrofit-gson = {module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit"}
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

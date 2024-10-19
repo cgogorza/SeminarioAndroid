@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.activityKtx)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
     testImplementation(libs.junit)

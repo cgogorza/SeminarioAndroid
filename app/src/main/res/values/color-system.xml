@@ -2,4 +2,5 @@
 
 <resources>
     <color name="brandcolor">@color/lightgreen</color>
+    <color name="textErrorColor">@color/red</color>
 </resources>
