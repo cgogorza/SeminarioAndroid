@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Imagen de la película -->
+    <ImageView
+        android:id="@+id/moviePoster"
+        android:layout_width="80dp"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/movie_poster_description"
+        tools:src="@drawable/sample_movie_poster"
+        />
+
+    <!-- Título de la película -->
+    <TextView
+        android:id="@+id/movieTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/moviePoster"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="The Wild Robot" />
+
+    <!-- Idioma original de la película -->
+    <TextView
+        android:id="@+id/movieOriginalLanguage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        android:textSize="14sp"
+        android:textColor="#666"
+        app:layout_constraintTop_toBottomOf="@id/movieTitle"
+        app:layout_constraintStart_toEndOf="@id/moviePoster"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Language: en" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

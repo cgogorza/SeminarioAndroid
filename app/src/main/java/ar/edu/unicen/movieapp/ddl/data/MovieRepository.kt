@@ -1,16 +1,34 @@
 package ar.edu.unicen.movieapp.ddl.data
 
-import ar.edu.unicen.movieapp.ddl.models.MovieRecommendation
+import android.util.Log
+import ar.edu.unicen.movieapp.BuildConfig
+import ar.edu.unicen.movieapp.ddl.models.Movie
 import javax.inject.Inject
 
 class MovieRepository @Inject constructor(
-    private val movieRemoteDataSource: MovieRemoteDataSource
+    private val remoteDataSource: MovieRemoteDataSource
 ) {
 
-    suspend fun getRecommendation(
-        participants: Int
-    ): MovieRecommendation? {
-        return movieRemoteDataSource.getRecommendation(participants)
+    private val authToken = "Bearer ${BuildConfig.TMDB_API_KEY}"
+
+    suspend fun getPopularMovie(): Movie? {
+        return try {
+            remoteDataSource.loadGenreMap(authToken)  // Asegúrate de cargar los géneros
+            remoteDataSource.getPopularMovie(authToken)
+        } catch (e: Exception) {
+            Log.e("MovieRepository", "Error en getPopularMovie: ${e.localizedMessage}", e)
+            null
+        }
     }
 
+    // Obtener múltiples páginas de películas
+    suspend fun getPopularMovies(quantity: Int, pages: Int = 1): List<Movie> {
+        return try {
+            remoteDataSource.loadGenreMap(authToken)  // Asegúrate de cargar los géneros
+            remoteDataSource.getPopularMovies(authToken, pages, quantity)
+        } catch (e: Exception) {
+            Log.e("MovieRepository", "Error en getPopularMovies: ${e.localizedMessage}", e)
+            emptyList()
+        }
+    }
 }

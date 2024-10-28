@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MovieApp</string>
-    <string name="hello_app">Hola Movie App</string>
-    <string name="how_are_you">Cómo estás?</string>
-    <string name="increment">Incrementar</string>
-    <string name="reset">Reiniciar</string>
+    <string name="movie_original_language">Idioma original: </string>
+    <string name="movie_rating">Calificación: %1$s</string>
+    <string name="movie_genres">Géneros: %1$s</string>
+    <string name="movie_synopsis">Sinopsis: %1$s</string>
+    <string name="btn_back">Volver</string>
+    <string name="movie_poster_description">Movie poster</string>
 
 </resources>
