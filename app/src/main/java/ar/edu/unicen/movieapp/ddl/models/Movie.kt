@@ -1,10 +1,11 @@
 package ar.edu.unicen.movieapp.ddl.models
 
+import ar.edu.unicen.movieapp.ddl.data.dto.PictureDto
+
 data class Movie(
     val id: Int,
     val title: String,
-    val posterUrl: String?,
-    val backdropUrl: String?,
+    val picture: PictureDto,
     val originalLanguage: String,
     val overview: String,
     val releaseDate: String,

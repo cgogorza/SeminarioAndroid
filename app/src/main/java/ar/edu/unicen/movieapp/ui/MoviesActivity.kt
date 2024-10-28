@@ -1,12 +1,13 @@
 package ar.edu.unicen.movieapp.ui
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import ar.edu.unicen.movieapp.BuildConfig
 import ar.edu.unicen.movieapp.databinding.ActivityMoviesBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,8 +26,15 @@ class MoviesActivity : AppCompatActivity() {
         binding = ActivityMoviesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupRecyclerView()  // Configura el RecyclerView según la orientación
         suscribeToUi()
         suscribeToViewModel()
+    }
+    private fun setupRecyclerView() {
+        // Detecta la orientación de la pantalla
+        val orientation = resources.configuration.orientation
+        val spanCount = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
+        binding.moviesList.layoutManager = GridLayoutManager(this, spanCount)
     }
 
     private fun suscribeToUi() {
@@ -54,7 +62,7 @@ class MoviesActivity : AppCompatActivity() {
                     intent.putExtra("movie_rating", movie.rating)
                     intent.putExtra("movie_genres", movie.genres.joinToString(", "))
                     intent.putExtra("movie_overview", movie.overview)
-                    intent.putExtra("movie_poster_url", movie.posterUrl)  // URL completa de la imagen
+                    intent.putExtra("movie_poster_url", movie.picture.backdropMedium)
                     startActivity(intent)
                 }
             )

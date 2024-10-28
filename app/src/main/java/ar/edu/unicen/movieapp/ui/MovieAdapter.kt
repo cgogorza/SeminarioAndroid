@@ -37,11 +37,11 @@ class MovieAdapter(
             binding.movieTitle.text = movie.title
             binding.movieOriginalLanguage.text = "Idioma: ${movie.originalLanguage}"
 
-            val imageUrl = movie.posterUrl ?: movie.backdropUrl
+            val imageUrl = movie.picture.posterThumbnail
             Glide.with(itemView.context)
                 .load(imageUrl)
                 .placeholder(R.drawable.ic_movie_logo)
-                //.error(R.drawable.ic_image.broken)
+                .error(R.drawable.ic_image_broken)
                 .into(binding.moviePoster)
 
             binding.root.setOnClickListener {

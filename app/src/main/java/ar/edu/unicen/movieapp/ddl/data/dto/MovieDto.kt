@@ -17,14 +17,14 @@ data class MovieDto(
     @SerializedName("genre_ids") val genreIds: List<Int>
 )
 
+
 fun MovieDto.toMovie(genreMap: Map<Int, String>): Movie {
-    val genreNames = genreIds.mapNotNull { genreMap[it] }  // Convertir IDs a nombres de género
+    val genreNames = genreIds.mapNotNull { genreMap[it] }
 
     return Movie(
         id = id,
         title = title,
-        posterUrl = posterPath?.let { "https://image.tmdb.org/t/p/w500$it" },
-        backdropUrl = backdropPath?.let { "https://image.tmdb.org/t/p/w500$it" },
+        picture = PictureDto(posterPath, backdropPath), // Asigna PictureDto para manejar múltiples tamaños
         originalLanguage = originalLanguage,
         overview = overview,
         releaseDate = releaseDate,
@@ -35,3 +35,5 @@ fun MovieDto.toMovie(genreMap: Map<Int, String>): Movie {
         genres = genreNames
     )
 }
+
+
