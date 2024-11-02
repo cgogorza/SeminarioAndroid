@@ -38,7 +38,7 @@ class MovieRemoteDataSource @Inject constructor(
     // Obtener la película más popular
     suspend fun getPopularMovie(authToken: String): Movie? {
         return withContext(Dispatchers.IO) {
-            loadGenreMap(authToken) // Asegúrate de que genreMap esté cargado
+            loadGenreMap(authToken)
             try {
                 val response = movieApi.getPopularMovies(authToken)
                 if (response.isSuccessful) {
@@ -59,7 +59,7 @@ class MovieRemoteDataSource @Inject constructor(
     suspend fun getPopularMovies(authToken: String, pages: Int, quantity: Int): List<Movie> {
         return withContext(Dispatchers.IO) {
             val allMovies = mutableListOf<Movie>()
-            loadGenreMap(authToken)  // Asegúrate de cargar los géneros
+            loadGenreMap(authToken)
             try {
                 for (page in 1..pages) {
                     val response = movieApi.getPopularMovies(authToken, page = page)
@@ -70,12 +70,14 @@ class MovieRemoteDataSource @Inject constructor(
                         if (movies != null) {
                             allMovies.addAll(movies)
                         }
+                        // Si alcanzamos la cantidad deseada, rompemos el bucle
                         if (allMovies.size >= quantity) break
                     } else {
                         Log.e("MovieRemoteDataSource", "Error API en getPopularMovies: ${response.errorBody()?.string()}")
                         break
                     }
                 }
+                // Asegura devolver solo la cantidad deseada
                 allMovies.take(quantity)
             } catch (e: Exception) {
                 Log.e("MovieRemoteDataSource", "Error en getPopularMovies: ${e.localizedMessage}", e)

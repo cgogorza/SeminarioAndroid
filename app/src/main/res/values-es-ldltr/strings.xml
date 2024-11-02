@@ -5,7 +5,7 @@
     <string name="movie_rating">Calificación: %1$s</string>
     <string name="movie_genres">Géneros: %1$s</string>
     <string name="movie_synopsis">Sinopsis: %1$s</string>
-    <string name="btn_back">Volver</string>
+    <string name="btn_back">Back</string>
     <string name="movie_poster_description">Movie poster</string>
 
 </resources>

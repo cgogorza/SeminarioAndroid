@@ -17,13 +17,10 @@ android {
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
+/////////////////////////
     // Obtiene la API Key desde las propiedades del proyecto
-    val tmdbApiKey = if (project.hasProperty("TMDB_API_KEY")) {
-        project.property("TMDB_API_KEY") as String
-    } else {
-        ""
-    }
+    val tmdbApiKey ="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxODQ1MmFkN2FiZmIzZDMwMzE0YjFkNWM4MWE4MTYzYSIsIm5iZiI6MTczMDA3MDI0OC40MTQ5ODEsInN1YiI6IjY3MGFjYWJjYjE1ZDk3YjFhOTNjMjk4NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pWD5k3H1weepjiJX9eFDOGyoZz-NsIG524w0NWlEECA"
+    ////////////////
     // Imprime el valor de la API Key para confirmar que se está leyendo correctamente
     println("TMDB_API_KEY from local.properties: $tmdbApiKey")
 

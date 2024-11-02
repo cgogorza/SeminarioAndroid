@@ -14,7 +14,7 @@ interface MovieApi {
     suspend fun getPopularMovies(
         @Header("Authorization") authToken: String,
         @Query("language") language: String = "en-US",
-        @Query("page") page: Int = 1
+        @Query("page") page: Int = 5
     ): Response<MovieResultDto>
 
     // Endpoint para obtener la lista de géneros de películas

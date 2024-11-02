@@ -13,7 +13,7 @@ class MovieRepository @Inject constructor(
 
     suspend fun getPopularMovie(): Movie? {
         return try {
-            remoteDataSource.loadGenreMap(authToken)  // Asegúrate de cargar los géneros
+            remoteDataSource.loadGenreMap(authToken)
             remoteDataSource.getPopularMovie(authToken)
         } catch (e: Exception) {
             Log.e("MovieRepository", "Error en getPopularMovie: ${e.localizedMessage}", e)
@@ -22,13 +22,14 @@ class MovieRepository @Inject constructor(
     }
 
     // Obtener múltiples páginas de películas
-    suspend fun getPopularMovies(quantity: Int, pages: Int = 1): List<Movie> {
+    suspend fun getPopularMovies(quantity: Int = 100, pages: Int = 5): List<Movie> {
         return try {
-            remoteDataSource.loadGenreMap(authToken)  // Asegúrate de cargar los géneros
+            remoteDataSource.loadGenreMap(authToken)
             remoteDataSource.getPopularMovies(authToken, pages, quantity)
         } catch (e: Exception) {
             Log.e("MovieRepository", "Error en getPopularMovies: ${e.localizedMessage}", e)
             emptyList()
         }
     }
+
 }
