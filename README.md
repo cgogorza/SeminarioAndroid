@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Este proyecto fue llevado a cabo en el marco del Seminario "Introducción al Desarrollo Mobile Android" de la carrera "Tecnología Universitaria en Desarrollo de Aplicaciones Informáticas" de la Facultad de Ciencias Exactas de la UNCPBA. 
+Este proyecto fue llevado a cabo en el marco del Seminario "Introducción a Desarrollo Mobile Android (2024)" de la carrera "Tecnología Universitaria en Desarrollo de Aplicaciones Informáticas" de la Facultad de Ciencias Exactas de la UNCPBA. 
 Se llevó a cabo el desarrollo de una aplicación de películas para dispositivos Android. La aplicación utiliza la API de [The Movie Database (TMDB)](https://www.themoviedb.org/) para brindar 
 información detallada sobre películas, la cual incluye títulos, imágenes de portada, sinopsis, calificación e idioma.
 
